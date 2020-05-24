@@ -1,0 +1,41 @@
+@charset "UTF-8"; /*Definindo o padrão lingua portuguesa*/
+
+/*Importando as fontes Roboto e Oswald*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap');/*Roboto*/
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');/*Oswald*/
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@1,300&display=swap');/*DM-Mono*/
+
+@font-face {
+    font-family: Copyright Violations;
+    src: url(../fonts/copyright-violations-2-webfont.woff);
+}
+
+/*Declarando as variáveis globais*/
+:root {
+    --imagem-background: url('../img/imagem_background.jpg');
+    --cor-padrao: #e7ecef;
+    --cor-link:  #e7ecefb2;
+    --cor-menu: rgba(27, 47, 51, 0.521);
+    --cor-efeito: rgb(27, 47, 51);
+    --cor-rodape: rgb(27, 47, 51);
+    --cor-rodape-trans: rgba(27, 47, 51, 0.747);
+    --transparente: rgba(0, 0, 0, 0);
+    --cor-redes-rodape: rgba(27, 47, 51, 0.87);
+}
+
+/*Efeito no menu*/
+* {
+    scroll-behavior: smooth;
+}
+
+/*Estilizando o corpo da página*/
+body {
+    background: var(--imagem-background) no-repeat center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+}
