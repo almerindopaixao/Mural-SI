@@ -25,7 +25,7 @@
 <body>
   <!--Chamando menu-->
   <?php
-    include('html/menu.html')
+  include('html/menu.html')
   ?>
   <main>
     <!--Calendário-->
@@ -43,19 +43,66 @@
           </div>
           <!--Informações do evento-->
           <div class="modal-body">
-            <dl class="row">
-              <dt class="col-sm-3">ID do evento</dt>
-              <dd class="col-sm-9" id="id"></dd>
+            <div class="visevent">
+              <dl class="row">
+                <dt class="col-sm-3">ID do evento</dt>
+                <dd class="col-sm-9" id="id"></dd>
 
-              <dt class="col-sm-3">Título</dt>
-              <dd class="col-sm-9" id="title"></dd>
+                <dt class="col-sm-3">Título</dt>
+                <dd class="col-sm-9" id="title"></dd>
 
-              <dt class="col-sm-3">Início do Evento</dt>
-              <dd class="col-sm-9" id="start"></dd>
+                <dt class="col-sm-3">Início do Evento</dt>
+                <dd class="col-sm-9" id="start"></dd>
 
-              <dt class="col-sm-3">Final do Evento</dt>
-              <dd class="col-sm-9" id="end"></dd>
-            </dl>
+                <dt class="col-sm-3">Final do Evento</dt>
+                <dd class="col-sm-9" id="end"></dd>
+              </dl>
+              <button class="btn btn-warning btn-lg btn-canc-vis">Editar</button>
+            </div>
+            <!--Formulário para editar o evento-->
+            <div class="formedit">
+              <span id="msg-edit"></span>
+              <form id="aditevent" method="POST" enctype="multipart/form-data">
+                <input type="hidden" name="id" id="id">
+                <div class="form-group row">
+                  <label class="col-sm-2 col-form-label">Título</label>
+                  <div class="col-sm-10">
+                    <input type="text" name="title" class="form-control" id="title" placeholder="Título do Evento">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-sm-2 col-form-label">Cor</label>
+                  <div class="col-sm-10">
+                    <select name="color" class="form-control" id="color">
+                      <option value="">Selecione</option>
+                      <option style="color:#0071c5" value="#0071c5">Azul</option>
+                      <option style="color:#ff0000" value="#ff0000">vermelho</option>
+                      <option style="color:#228b22" value="#228b22">Verde</option>
+                      <option style="color:#ffd700" value="#ffd700">Amarelo</option>
+                      <option style="color:#a020f0" value="#a020f0">Roxo</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-sm-2 col-form-label">Início</label>
+                  <div class="col-sm-10">
+                    <input type="text" name="start" class="form-control" id="start" onkeypress="DataHora(event, this)">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-sm-2 col-form-label">Final</label>
+                  <div class="col-sm-10">
+                    <input type="text" name="end" class="form-control" id="end" onkeypress="DataHora(event, this)">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-sm-10">
+                    <button type="button" class="btn btn-danger btn-lg btn-canc-edit">Cancelar</button>
+                    <button type="submit" name="CadEvent" id="CadEvent" value="CadEvent" class="btn btn-success btn-lg">Editar</button>
+                  </div>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       </div>
@@ -73,43 +120,44 @@
           </div>
           <!--Formulário para cadastro-->
           <div class="modal-body">
-            <form>
-                <div class="form-group row">
-                  <label class="col-sm-2 col-form-label">Título</label>
-                  <div class="col-sm-10">
-                      <input type="text" name="title" class="form-control" id="title" placeholder="Título do Evento">
-                  </div>
+            <span id="msg-cad"></span>
+            <form id="addevent" method="POST" enctype="multipart/form-data">
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Título</label>
+                <div class="col-sm-10">
+                  <input type="text" name="title" class="form-control" id="title" placeholder="Título do Evento">
                 </div>
-                <div class="form-group row">
-                  <label class="col-sm-2 col-form-label">Cor</label>
-                  <div class="col-sm-10">
-                      <select name="color" class="form-control" id="color">
-                        <option value="">Selecione</option>
-                        <option style="color:#0071c5" value="#0071c5">Azul</option>
-                        <option style="color:#ff0000" value="#ff0000">vermelho</option>
-                        <option style="color:#228b22" value="#228b22">Verde</option>
-                        <option style="color:#ffd700" value="#ffd700">Amarelo</option>
-                        <option style="color:#a020f0" value="#a020f0">Roxo</option>
-                        </select>
-                  </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Cor</label>
+                <div class="col-sm-10">
+                  <select name="color" class="form-control" id="color">
+                    <option value="">Selecione</option>
+                    <option style="color:#0071c5" value="#0071c5">Azul</option>
+                    <option style="color:#ff0000" value="#ff0000">vermelho</option>
+                    <option style="color:#228b22" value="#228b22">Verde</option>
+                    <option style="color:#ffd700" value="#ffd700">Amarelo</option>
+                    <option style="color:#a020f0" value="#a020f0">Roxo</option>
+                  </select>
                 </div>
-                <div class="form-group row">
-                  <label class="col-sm-2 col-form-label">Início</label>
-                  <div class="col-sm-10">
-                      <input type="text" name="start" class="form-control" id="start" onkeypress="DataHora(event, this)">
-                  </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Início</label>
+                <div class="col-sm-10">
+                  <input type="text" name="start" class="form-control" id="start" onkeypress="DataHora(event, this)">
                 </div>
-                <div class="form-group row">
-                  <label class="col-sm-2 col-form-label">Final</label>
-                  <div class="col-sm-10">
-                      <input type="text" name="end" class="form-control" id="end" onkeypress="DataHora(event, this)">
-                  </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Final</label>
+                <div class="col-sm-10">
+                  <input type="text" name="end" class="form-control" id="end" onkeypress="DataHora(event, this)">
                 </div>
-                <div class="form-group row">
-                  <div class="col-sm-10">
-                    <input style="background:var(--cor-efeito)" type="button" name="CadEvent" id="CadEvent" value="Cadastrar" class="btn btn-success btn-lg">
-                  </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-10">
+                  <button type="submit" name="CadEvent" id="CadEvent" value="CadEvent" class="btn btn-success btn-lg">Cadastrar</button>
                 </div>
+              </div>
             </form>
           </div>
         </div>
@@ -118,7 +166,7 @@
   </main>
   <!--Chamando rodapé-->
   <?php
-    include('html/rodape.html')
+  include('html/rodape.html')
   ?>
 </body>
 <script src="js/script.js"></script>
@@ -132,4 +180,5 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <script src="js/mural.js"></script>
+
 </html>
