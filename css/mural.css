@@ -1,8 +1,7 @@
 @import url('style.css');
 
 main {
-    margin-top: 7%;
-    margin-bottom: 10%;
+    margin-top: 6.6%;
     padding: 0;
     font-size: 18px;
     background-color: white;
@@ -11,7 +10,7 @@ main {
 }
 
 #calendar {
-    max-width: 95%;
+    width: 50%;
     margin: 0 auto;
 }
 
@@ -21,4 +20,12 @@ main {
 
 .formedit {
     display: none;
+}
+
+.fc-title {
+    color: white
+}
+
+.fc-time {
+    color: white;
 }

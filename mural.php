@@ -57,7 +57,8 @@
                 <dt class="col-sm-3">Final do Evento</dt>
                 <dd class="col-sm-9" id="end"></dd>
               </dl>
-              <button class="btn btn-warning btn-lg btn-canc-vis">Editar</button>
+              <button class="btn btn-warning btn-canc-vis">Editar</button>
+              <a href="" id="apagar-evento" class="btn btn-danger bnt-lg">Apagar</a>
             </div>
             <!--Formulário para editar o evento-->
             <div class="formedit">
@@ -97,8 +98,8 @@
                 </div>
                 <div class="form-group row">
                   <div class="col-sm-10">
-                    <button type="button" class="btn btn-danger btn-lg btn-canc-edit">Cancelar</button>
-                    <button type="submit" name="CadEvent" id="CadEvent" value="CadEvent" class="btn btn-success btn-lg">Editar</button>
+                    <button type="button" class="btn btn-danger btn-canc-edit">Cancelar</button>
+                    <button type="submit" name="CadEvent" id="CadEvent" value="CadEvent" class="btn btn-success">Salvar</button>
                   </div>
                 </div>
               </form>
@@ -155,7 +156,7 @@
               </div>
               <div class="form-group row">
                 <div class="col-sm-10">
-                  <button type="submit" name="CadEvent" id="CadEvent" value="CadEvent" class="btn btn-success btn-lg">Cadastrar</button>
+                  <button type="submit" name="CadEvent" id="CadEvent" value="CadEvent" class="btn btn-success">Cadastrar</button>
                 </div>
               </div>
             </form>

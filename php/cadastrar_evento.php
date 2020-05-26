@@ -20,9 +20,9 @@
     $insert_event->bindParam(':end', $data_end_conv);
 
     if($insert_event->execute()) {
-        $retorna = ['sit' => true, 'msg' => '<div class="alert alert-success" role="alert">Evento cadastrado com sucesso ' .$data_start_conv.'!</div>'];
+        $retorna = ['sit' => true, 'msg' => '<div class="alert alert-success" role="alert">Evento cadastrado com sucesso !</div>'];
     } else {
-        $retorna = ['sit' => false, 'msg' => '<div class="alert alert-danger" role="alert">Erro: Evento não foi cadastrado com sucesso'.$data_end_conv.'!</div>'];
+        $retorna = ['sit' => false, 'msg' => '<div class="alert alert-danger" role="alert">Erro: Evento não foi cadastrado com sucesso !</div>'];
     }
     
 

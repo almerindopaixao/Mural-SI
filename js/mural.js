@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var calendar = new FullCalendar.Calendar(calendarEl, {
       locale: 'pt-br', // linguagem padrão
       plugins: ['interaction', 'dayGrid', 'timeGrid', 'list'],
-      height: 800,
+      height: 'parent',
       header: {
         left: 'prevYear,prev,next,nextYear today',
         center: 'title',
@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
       },
       // Evento de click no evento para aparecer a janela modal
       eventClick: info => {
+        $('#apagar-evento').attr('href', 'php/apagar_evento.php?id=' + info.event.id) //Apagar Evento
         info.jsEvent.preventDefault(); //Nunca pegar a url
         $('#visualizar #id').text(info.event.id)
         $('#visualizar #id').val(info.event.id)
