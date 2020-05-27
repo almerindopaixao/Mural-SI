@@ -24,10 +24,13 @@ document.addEventListener('DOMContentLoaded', function() {
       eventClick: info => {
         $('#apagar-evento').attr('href', 'php/apagar_evento.php?id=' + info.event.id) //Apagar Evento
         info.jsEvent.preventDefault(); //Nunca pegar a url
+        console.log(info.event)
         $('#visualizar #id').text(info.event.id)
         $('#visualizar #id').val(info.event.id)
         $('#visualizar #title').text(info.event.title)
         $('#visualizar #title').val(info.event.title)
+        $('#visualizar #description').text(info.event.extendedProps.description)
+        $('#visualizar #description').val(info.event.extendedProps.description)
         $('#visualizar #color').val(info.event.backgroundColor)
         $('#visualizar #start').text(info.event.start.toLocaleString())
         $('#visualizar #start').val(info.event.start.toLocaleString())
@@ -123,7 +126,7 @@ $(document).ready(() => {
         $('.visevent').slideToggle()
     })
 
-    $('#aditevent').on('submit', function(event) {
+    $('#aditevent').on('submit', function(event) { 
         event.preventDefault()
         $.ajax({
             method: 'POST',

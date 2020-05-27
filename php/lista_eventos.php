@@ -1,7 +1,7 @@
 <?php
     include "conexao.php";
 
-   $query_events = "SELECT id, title, color, start, end  FROM events";
+   $query_events = "SELECT id, title, description, color, start, end FROM events";
 
    $resultado_events = $conn -> prepare($query_events);
    $resultado_events -> execute();
@@ -14,6 +14,7 @@
        $color = $row_events['color'];
        $start = $row_events['start'];
        $end = $row_events['end'];
+       $description = $row_events['description'];
 
        $eventos[] = [
            'id' => $id,
@@ -21,6 +22,7 @@
            'color' => $color,
            'start' => $start,
            'end' => $end,
+           'description' => $description
        ];
    }
 
