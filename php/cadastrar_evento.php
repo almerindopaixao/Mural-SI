@@ -6,10 +6,10 @@
 
     //Converter a data e hora por formato para o banco de dados
     $data_start = str_replace('/', '-', $dados['start']);
-    $data_start_conv = date('Y-m-d H:i:s', strtotime($data_start));
+    $data_start_conv = date('Y-m-d H:i:s', strtotime($data_start ." ".$dados['startTime']));
 
     $data_end = str_replace('/', '-', $dados['end']);
-    $data_end_conv = date('Y-m-d H:i:s', strtotime($data_end));
+    $data_end_conv = date('Y-m-d H:i:s', strtotime($data_end." ".$dados['endTime']));
 
     $query_event = 'INSERT INTO events (title, description, color, start, end) VALUES (:title, :description, :color, :start, :end)';
 

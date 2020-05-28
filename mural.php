@@ -36,12 +36,12 @@
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
           <div class="modal-header">
-            <svg class="bi bi-calendar-date" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <path d="M6.445 11.688V6.354h-.633A12.6 12.6 0 0 0 4.5 7.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675zm1.188-1.305c.047.64.594 1.406 1.703 1.406 1.258 0 2-1.066 2-2.871 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684zm2.953-2.317c0 .696-.559 1.18-1.184 1.18-.601 0-1.144-.383-1.144-1.2 0-.823.582-1.21 1.168-1.21.633 0 1.16.398 1.16 1.23z" />
+            <svg class="bi bi-calendar-check" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
               <path fill-rule="evenodd" d="M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1zm1-3a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2H2z" />
               <path fill-rule="evenodd" d="M3.5 0a.5.5 0 0 1 .5.5V1a.5.5 0 0 1-1 0V.5a.5.5 0 0 1 .5-.5zm9 0a.5.5 0 0 1 .5.5V1a.5.5 0 0 1-1 0V.5a.5.5 0 0 1 .5-.5z" />
             </svg>
-            <h5 class="modal-title" id="staticBackdropLabel">&nbsp; &nbsp;Informações do Evento</h5>
+            <h5 class="modal-title" id="staticBackdropLabel">&nbsp;&nbsp;Informações do Evento</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -88,26 +88,27 @@
                 <div class="form-group row">
                   <label class="col-sm-2 col-form-label">Cor</label>
                   <div class="col-sm-10">
-                    <select name="color" class="form-control" id="color">
-                      <option value="">Selecione</option>
-                      <option style="color:#0071c5" value="#0071c5">Azul</option>
-                      <option style="color:#ff0000" value="#ff0000">vermelho</option>
-                      <option style="color:#228b22" value="#228b22">Verde</option>
-                      <option style="color:#ffd700" value="#ffd700">Amarelo</option>
-                      <option style="color:#a020f0" value="#a020f0">Roxo</option>
-                    </select>
+                    <input class="form-control" type="color" id="color" name="color">
                   </div>
                 </div>
                 <div class="form-group row">
-                  <label class="col-sm-2 col-form-label">Início</label>
-                  <div class="col-sm-10">
-                    <input type="text" name="start" class="form-control" id="start" onkeypress="DataHora(event, this)">
+                  <label class="col-sm-2 col-form-label">Data Inicial</label>
+                  <div class="col">
+                    <input type="date" name="start" class="form-control" id="start">
+                  </div>
+                  <label class="col-sm-2 col-form-label">Hora Inicial</label>
+                  <div class="col">
+                    <input type="time" name="startTime" class="form-control" id="startTime">
                   </div>
                 </div>
                 <div class="form-group row">
-                  <label class="col-sm-2 col-form-label">Final</label>
-                  <div class="col-sm-10">
-                    <input type="text" name="end" class="form-control" id="end" onkeypress="DataHora(event, this)">
+                  <label class="col-sm-2 col-form-label">Data Final</label>
+                  <div class="col">
+                    <input type="date" name="end" class="form-control" id="end">
+                  </div>
+                  <label class="col-sm-2 col-form-label">Hora Final</label>
+                  <div class="col">
+                    <input type="time" name="endTime" class="form-control" id="endTime">
                   </div>
                 </div>
                 <div class="form-group row">
@@ -128,7 +129,13 @@
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="staticBackdropLabel">Cadastrar evento</h5>
+            <svg class="bi bi-calendar-plus" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M8 7a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z" />
+              <path fill-rule="evenodd" d="M7.5 9.5A.5.5 0 0 1 8 9h2a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0v-2z" />
+              <path fill-rule="evenodd" d="M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1zm1-3a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2H2z" />
+              <path fill-rule="evenodd" d="M3.5 0a.5.5 0 0 1 .5.5V1a.5.5 0 0 1-1 0V.5a.5.5 0 0 1 .5-.5zm9 0a.5.5 0 0 1 .5.5V1a.5.5 0 0 1-1 0V.5a.5.5 0 0 1 .5-.5z" />
+            </svg>
+            <h5 class="modal-title" id="staticBackdropLabel">&nbsp;&nbsp;Cadastrar evento</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -152,26 +159,27 @@
               <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Cor</label>
                 <div class="col-sm-10">
-                  <select name="color" class="form-control" id="color">
-                    <option value="">Selecione</option>
-                    <option style="color:#0071c5" value="#0071c5">Azul</option>
-                    <option style="color:#ff0000" value="#ff0000">vermelho</option>
-                    <option style="color:#228b22" value="#228b22">Verde</option>
-                    <option style="color:#ffd700" value="#ffd700">Amarelo</option>
-                    <option style="color:#a020f0" value="#a020f0">Roxo</option>
-                  </select>
+                  <input class="form-control" type="color" id="color" name="color">
                 </div>
               </div>
               <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Início</label>
-                <div class="col-sm-10">
-                  <input type="text" name="start" class="form-control" id="start" onkeypress="DataHora(event, this)">
+                <label class="col-sm-2 col-form-label">Data Inicial</label>
+                <div class="col">
+                  <input type="date" min="2019-05-27" max="2030-05-27" name="start" class="form-control" id="start">
+                </div>
+                <label class="col-sm-2 col-form-label">Hora Inicial</label>
+                <div class="col">
+                  <input type="time" name="startTime" class="form-control" id="startTime">
                 </div>
               </div>
               <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Final</label>
-                <div class="col-sm-10">
-                  <input type="text" name="end" class="form-control" id="end" onkeypress="DataHora(event, this)">
+                <label class="col-sm-2 col-form-label">Data Final</label>
+                <div class="col">
+                  <input type="date" name="end" class="form-control" id="end">
+                </div>
+                <label class="col-sm-2 col-form-label">Hora Final</label>
+                <div class="col">
+                  <input type="time" name="endTime" class="form-control" id="endTime">
                 </div>
               </div>
               <div class="form-group row">

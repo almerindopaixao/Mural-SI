@@ -16,13 +16,20 @@
        $end = $row_events['end'];
        $description = $row_events['description'];
 
+       /*
+       if (date('H:i:s', strtotime($start)) == '00:00:00') {
+           $start =
+       }
+       */
+
        $eventos[] = [
            'id' => $id,
            'title' => $title,
            'color' => $color,
            'start' => $start,
            'end' => $end,
-           'description' => $description
+           'description' => $description,
+           'textColor' => '#ffffff'
        ];
    }
 
