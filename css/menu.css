@@ -14,6 +14,7 @@
     display: none;
     text-shadow: 3px 3px black;
     font-size: 30px;
+    width: 20%;
 }
 
 /*Estilizando lightbox*/
@@ -144,7 +145,6 @@
 @media(max-width: 890px) {
     #cabecalho {
         height: 54px;
-        background-color: var(--transparente);
     }
 
     #cabecalho-modificado {

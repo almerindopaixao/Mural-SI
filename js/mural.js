@@ -4,17 +4,15 @@ document.addEventListener('DOMContentLoaded', function() {
     var calendar = new FullCalendar.Calendar(calendarEl, {
       locale: 'pt-br', // linguagem padrão
       plugins: ['interaction', 'dayGrid', 'timeGrid', 'list'],
-      height: 'parent',
-      header: {
-        left: 'prevYear,prev,next,nextYear today',
-        center: 'title',
-        right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
-      },
+      height: "parent",
+      header: botoes(),
+      defaultView: $(window).width() < 890 ? 'listMonth':'dayGridMonth', //Definindo a visualização de acordo com o dispositivo
       navLinks: true, // Se você pode clicar nos links de navegação
       businessHours: true, // diferenciar o horario comercial
       editable: true,
       eventLimit: true,
       nowIndicator: true,
+      contentHeight: "auto", // Tira a barra de
       events: 'php/lista_eventos.php', //Eventos no banco de dados
       extraParams: () => {
         return {
@@ -52,6 +50,29 @@ document.addEventListener('DOMContentLoaded', function() {
 
     calendar.render();
   });
+
+//Função que cadastra um evento quando o menu esta no modo responsivo
+let botao = window.document.querySelector('.btn-cadastro-resp')
+botao.addEventListener('click', function() {
+    $('#cadastrar').modal('show')
+})
+
+function botoes() {
+    /*Função que mostrará os botões de acordo com o tamanho da tela*/
+    if ($(window).width() < 890) {
+        return {
+            left: 'timeGridDay,listMonth',
+            right: 'prev,next',
+            center: 'title'
+        }
+    } else {
+        return {
+            left: 'prev,next,today',
+            center: 'title',
+            right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
+        }
+    }
+}
 
 function validarNull(info) {
     if(info.event.end == null) {
@@ -139,3 +160,15 @@ $(document).ready(() => {
         })
     })  
 })
+
+/*
+defaultView: $(window).width() < 765 ? 'basicDay':'agendaWeek'
+
+
+
+// add the responsive classes after page initialization
+window.onload = function () {
+    $('.fc-toolbar.fc-header-toolbar').addClass('row col-lg-12');
+};
+
+*/
